@@ -18,14 +18,13 @@ int main(int ac, char *av[], char *ev[])
 	{
 		i = 0;
 
-		write(STDOUT_FILENO, "$ ", 2);
+		write(STDOUT_FILENO, "$: ", 3);
 		len = getline(&cmd, &size, stdin);
 
 		if (len == -1)
 		{
 			if (cmd != NULL)
 				free(cmd);
-			write(STDOUT_FILENO, "\nExiting...\n", 12);
 			break;
 		}
 		cmd[len - 1] = '\0';
